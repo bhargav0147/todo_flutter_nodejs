@@ -16,7 +16,7 @@ exports.login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         
-        const user = userServices.checkUser(email);
+        const user =await userServices.checkUser(email);
 
         if(!user)
         {
@@ -24,7 +24,7 @@ exports.login = async (req, res, next) => {
 
         }
 
-        const isMatch = user.comparePassword(password);
+        const isMatch =await user.comparePassword(password);
         if(isMatch===false){
             throw new Error('Password Invalid');
 

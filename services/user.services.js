@@ -14,7 +14,7 @@ class UserServices
     static async checkUser(email)
     {
         try{
-                return await userModel({email});
+                return await userModel.findOne({email});
         }catch(e){
 
         }
