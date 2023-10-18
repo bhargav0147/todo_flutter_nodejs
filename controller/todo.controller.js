@@ -22,14 +22,16 @@ exports.getUserTodo = async (req, res, next) => {
         satisfies
     }
 
-    exports.deleteTodo = async (req, res, next) => {
-        try {
-            const { id } = req.body;
-            let deleted = await TodoServices.deleteTodo(userId);
+    
+}
 
-            res.json({ status: true, success: deleted })
-        } catch (e) {
-           throw e;
-        }
+exports.deleteTodo = async (req, res, next) => {
+    try {
+        const { id } = req.body;
+        let deleted = await TodoServices.deleteTodo(id);
+
+        res.json({ status: true, success: deleted })
+    } catch (e) {
+       throw e;
     }
 }
